@@ -1,0 +1,11 @@
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/evrinomalivevideo/css/liveVideo.css') }}" media="screen" title="no title" charset="utf-8">
+{% endblock stylesheets %}
+
+{% block page %}
+    {% include '@EvrinomaLiveVideo/LiveVideo/template.html.twig' %}
+{% endblock %}
+
+{% block javascripts %}
+    {% include '@EvrinomaLiveVideo/LiveVideo/js.html.twig' %}
+{% endblock %}

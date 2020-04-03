@@ -1,0 +1,8 @@
+livevideo:
+  resource: "@EvrinomaLiveVideoBundle/Resources/config/routing/default.yml"
+  prefix: evrinoma
+
+livevideoapi:
+  resource: "@EvrinomaLiveVideoBundle/Resources/config/routing/api.yml"
+  prefix: evrinoma
+

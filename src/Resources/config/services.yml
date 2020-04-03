@@ -1,0 +1,98 @@
+services:
+  evrinoma.live_video.voter:
+    class: Evrinoma\LiveVideoBundle\Voter\LiveVideoVoter
+    autowire: true
+
+  evrinoma.live_video.controller:
+    class: Evrinoma\LiveVideoBundle\Controller\LiveVideoController
+    autowire: true
+
+  evrinoma.live_video.api.controller:
+    class: Evrinoma\LiveVideoBundle\Controller\LiveVideoApiController
+    arguments:
+      - '@jms_serializer'
+      - '@request_stack'
+      - '@evrinoma.dto.factory'
+      - '@evrinoma.live_video.manager'
+      - '@evrinoma.live_video.control.manager'
+
+  Evrinoma\LiveVideoBundle\Voter\LiveVideoVoter:
+    alias: evrinoma.live_video.voter
+    public: true
+    deprecated:
+
+  Evrinoma\LiveVideoBundle\Controller\LiveVideoController:
+    alias: evrinoma.live_video.controller
+    public: true
+    deprecated:
+
+  Evrinoma\LiveVideoBundle\Controller\LiveVideoApiController:
+    alias: evrinoma.live_video.api.controller
+    public: true
+    deprecated:
+
+  evrinoma.live_video.manager:
+    class: Evrinoma\LiveVideoBundle\Manager\LiveVideoManager
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@evrinoma.live_video.voter'
+
+  evrinoma.live_video.control.manager:
+    class: Evrinoma\LiveVideoBundle\Manager\LiveControlManager
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@evrinoma.live_video.manager'
+
+  Evrinoma\LiveVideoBundle\Manager\LiveVideoManager:
+    alias: evrinoma.live_video.manager
+    public: true
+    deprecated:
+
+  Evrinoma\LiveVideoBundle\Manager\LiveControlManager:
+    alias: evrinoma.live_video.control.manager
+    public: true
+    deprecated:
+
+  evrinoma.live_video.form.rest.action:
+    class: Evrinoma\LiveVideoBundle\Form\Rest\ActionType
+    arguments:
+      - '@evrinoma.live_video.control.manager'
+    tags: { - name: form.type }
+
+  evrinoma.live_video.form.rest.cam:
+    class: Evrinoma\LiveVideoBundle\Form\Rest\CamType
+    arguments:
+      - '@evrinoma.live_video.manager'
+      - '@evrinoma.dto.factory'
+    tags: { - name: form.type }
+
+  evrinoma.live_video.form.rest.group:
+    class: Evrinoma\LiveVideoBundle\Form\Rest\GroupType
+    arguments:
+      - '@evrinoma.live_video.manager'
+      - '@evrinoma.dto.factory'
+    tags: { - name: form.type }
+
+  Evrinoma\LiveVideoBundle\Form\Rest\ActionType:
+    alias: evrinoma.live_video.form.rest.action
+    public: true
+    deprecated:
+
+  Evrinoma\LiveVideoBundle\Form\Rest\CamType:
+    alias: evrinoma.live_video.form.rest.cam
+    public: true
+    deprecated:
+
+  Evrinoma\LiveVideoBundle\Form\Rest\GroupType:
+    alias: evrinoma.live_video.form.rest.group
+    public: true
+    deprecated:
+
+  evrinoma.live_video.describer.api:
+    class: Evrinoma\LiveVideoBundle\Describer\ApiDescriber
+    tags: { - name: nelmio_api_doc.describer }
+
+  Evrinoma\LiveVideoBundle\Describer\ApiDescriber:
+    alias: evrinoma.live_video.describer.api
+    public: true
+    deprecated:

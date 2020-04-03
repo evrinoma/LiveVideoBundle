@@ -1,0 +1,54 @@
+{
+    "name": "evrinoma/livevideo-bundle",
+    "description": "Wowza Stream player",
+    "keywords": [
+        "Wowza", "Stream player", "Live Video"
+    ],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nikolay Nikolaev",
+            "email": "evrinoma@gmail.com"
+        }
+    ],
+    "version": "1.0.0",
+    "require": {
+        "php": "^7.1.3",
+        "evrinoma/dto-bundle": "dev-master",
+        "evrinoma/utils-bundle": "dev-master",
+        "ltoscano/ponvif": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Evrinoma\\LiveVideoBundle\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "ltoscano/ponvif",
+                "version": "dev-master",
+                "dist": {
+                    "url": "https://github.com/ltoscano/ponvif/archive/master.zip",
+                    "type": "zip"
+                },
+                "autoload": {
+                    "classmap": ["lib/"]
+                }
+            }
+        },
+        {
+            "type": "vcs",
+            "url": "/opt/WWW/container.ite-ng.ru/PhpstormProjects/DtoBundle"
+        },
+        {
+            "type": "vcs",
+            "url": "/opt/WWW/container.ite-ng.ru/PhpstormProjects/UtilsBundle"
+        }
+    ]
+}

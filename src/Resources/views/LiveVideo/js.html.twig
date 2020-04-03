@@ -1,0 +1,7 @@
+{% block js_livevideo %}
+    <script src="{{ asset('build/live_video.js', 'webpack') }}"></script>
+{% endblock %}
+
+{% block js_livevideo_native %}
+    <script type="text/javascript" src="{{ asset('bundles/evrinomalivevideo/js/Wowza/wowzaplayer.min.js') }}"></script>
+{% endblock %}

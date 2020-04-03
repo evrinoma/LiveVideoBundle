@@ -1,0 +1,50 @@
+services:
+  evrinoma.live_video.fixtures.type:
+    class: Evrinoma\LiveVideoBundle\Fixtures\TypeFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.ipark45:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamIpark45Fixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.vankor:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamVankorFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.ishim:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamIshimFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.gusev:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamGusevFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.pregolskay:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamPregolskayFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.primorsky:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamPrimorskyFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.sovetsk:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamSovetskFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.tobolsk:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamTobolskFixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+
+  evrinoma.live_video.fixtures.tumen:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamTumenFixtures
+    tags:
+      - { name: doctrine.fixture.orm }

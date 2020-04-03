@@ -1,0 +1,6 @@
+live_video:
+  path: /live_video/video/{groupAlias}
+  methods: GET
+  defaults: { _controller: Evrinoma\LiveVideoBundle\Controller\LiveVideoController::video}
+  options:
+    expose: true

@@ -1,0 +1,18 @@
+.zoom.in.icon:before {
+    content: '+';
+}
+.zoom.out.icon:before {
+    content: '-';
+}
+.arrow.left.icon:before {
+    content: "\2190"
+}
+.arrow.up.icon:before {
+    content: "\2191"
+}
+.arrow.right.icon:before {
+    content: "\2192"
+}
+.arrow.down.icon:before {
+    content: "\2193"
+}
