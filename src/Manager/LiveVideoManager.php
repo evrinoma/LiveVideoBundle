@@ -24,7 +24,7 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
     /**
      * @var VoiterInterface
      */
-    private $voterManager;
+    private $voiterManager;
 
 //endregion Fields
 
@@ -33,12 +33,12 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
      * LiveVideoManager constructor.
      *
      * @param EntityManagerInterface $entityManager
-     * @param VoiterInterface         $voterManager
+     * @param VoiterInterface         $voiterManager
      */
-    public function __construct(EntityManagerInterface $entityManager, VoiterInterface $voterManager)
+    public function __construct(EntityManagerInterface $entityManager, VoiterInterface $voiterManager)
     {
         parent::__construct($entityManager);
-        $this->voterManager = $voterManager;
+        $this->voiterManager = $voiterManager;
     }
 //endregion Constructor
 
@@ -142,7 +142,7 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
 
         /** @var Group $item */
         foreach ($data as $item) {
-            if ($item instanceof Group && !$this->voterManager->checkPermission($item->getRole())) {
+            if ($item instanceof Group && !$this->voiterManager->checkPermission($item->getRole())) {
                 /** @var Cam $camera */
                 foreach ($item->getLiveStreams() as $camera) {
                     $camera->setControl(false);

@@ -1,5 +1,5 @@
 services:
-  evrinoma.live_video.voter:
+  evrinoma.live_video.voiter:
     class: Evrinoma\LiveVideoBundle\Voiter\LiveVideoVoiter
     autowire: true
 
@@ -17,7 +17,7 @@ services:
       - '@evrinoma.live_video.control.manager'
 
   Evrinoma\LiveVideoBundle\Voiter\LiveVideoVoiter:
-    alias: evrinoma.live_video.voter
+    alias: evrinoma.live_video.voiter
     public: true
     deprecated:
 
@@ -35,7 +35,7 @@ services:
     class: Evrinoma\LiveVideoBundle\Manager\LiveVideoManager
     arguments:
       - '@doctrine.orm.entity_manager'
-      - '@evrinoma.live_video.voter'
+      - '@evrinoma.live_video.voiter'
 
   evrinoma.live_video.control.manager:
     class: Evrinoma\LiveVideoBundle\Manager\LiveControlManager
