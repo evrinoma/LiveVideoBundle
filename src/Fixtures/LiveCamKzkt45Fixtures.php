@@ -4,7 +4,7 @@ namespace Evrinoma\LiveVideoBundle\Fixtures;
 
 use Evrinoma\LiveVideoBundle\Entity\Cam;
 use Evrinoma\LiveVideoBundle\Entity\Group;
-use Evrinoma\LiveVideoBundle\Voter\LiveVideoRoleInterface;
+use Evrinoma\LiveVideoBundle\Voiter\LiveVideoRoleInterface;
 
 /**
  * Class LiveCamKzkt45Fixtures

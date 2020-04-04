@@ -1,13 +1,13 @@
 <?php
 
-namespace Evrinoma\LiveVideoBundle\Voter;
+namespace Evrinoma\LiveVideoBundle\Voiter;
 
-use Evrinoma\UtilsBundle\Voter\RoleInterface;
+use Evrinoma\UtilsBundle\Voiter\RoleInterface;
 
 /**
  * Interface LiveVideoRoleInterface
  *
- * @package Evrinoma\LiveVideoBundle\Voter
+ * @package Evrinoma\LiveVideoBundle\Voiter
  */
 interface LiveVideoRoleInterface extends RoleInterface
 {

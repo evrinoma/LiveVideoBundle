@@ -8,7 +8,7 @@ use Evrinoma\LiveVideoBundle\Entity\Cam;
 use Evrinoma\LiveVideoBundle\Entity\Group;
 use Evrinoma\UtilsBundle\Manager\AbstractEntityManager;
 use Evrinoma\UtilsBundle\Rest\RestTrait;
-use Evrinoma\UtilsBundle\Voter\VoterInterface;
+use Evrinoma\UtilsBundle\Voiter\VoiterInterface;
 
 /**
  * Class LiveVideoManager
@@ -22,7 +22,7 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
 //region SECTION: Fields
     protected $repositoryClass = Group::class;
     /**
-     * @var VoterInterface
+     * @var VoiterInterface
      */
     private $voterManager;
 
@@ -33,9 +33,9 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
      * LiveVideoManager constructor.
      *
      * @param EntityManagerInterface $entityManager
-     * @param VoterInterface         $voterManager
+     * @param VoiterInterface         $voterManager
      */
-    public function __construct(EntityManagerInterface $entityManager, VoterInterface $voterManager)
+    public function __construct(EntityManagerInterface $entityManager, VoiterInterface $voterManager)
     {
         parent::__construct($entityManager);
         $this->voterManager = $voterManager;

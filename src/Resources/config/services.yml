@@ -1,6 +1,6 @@
 services:
   evrinoma.live_video.voter:
-    class: Evrinoma\LiveVideoBundle\Voter\LiveVideoVoter
+    class: Evrinoma\LiveVideoBundle\Voiter\LiveVideoVoiter
     autowire: true
 
   evrinoma.live_video.controller:
@@ -16,7 +16,7 @@ services:
       - '@evrinoma.live_video.manager'
       - '@evrinoma.live_video.control.manager'
 
-  Evrinoma\LiveVideoBundle\Voter\LiveVideoVoter:
+  Evrinoma\LiveVideoBundle\Voiter\LiveVideoVoiter:
     alias: evrinoma.live_video.voter
     public: true
     deprecated:
