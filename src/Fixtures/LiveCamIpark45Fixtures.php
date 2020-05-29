@@ -202,8 +202,8 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
         $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.33_LQ.stream']);
 
         if (!$cam) {
-            $camEleven = new Cam();
-            $camEleven
+            $cam = new Cam();
+            $cam
                 ->setName('Eleven')
                 ->setIp('83.146.116.47:31614')
                 ->setUserName('admin')
@@ -212,7 +212,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
                 ->setStream('cam_172.16.39.33_LQ.stream')
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
-            $this->objectManager->persist($camEleven);
+            $this->objectManager->persist($cam);
         }
 
         $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.34_LQ.stream']);
@@ -291,7 +291,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
                 ->setPassword('rehufy2014')
                 ->setTitle('Indpark kur 15')
                 ->setStream('cam_172.16.39.44_LQ.stream')
-                ->setControl(true)
+                //->setControl(true)
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
@@ -318,7 +318,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
         if (!$cam) {
             $cam = new Cam();
             $cam
-                ->setName('Nine')
+                ->setName('Nineteen')
                 ->setIp('172.16.39.46')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')
@@ -335,7 +335,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
         if (!$cam) {
             $cam = new Cam();
             $cam
-                ->setName('Ten')
+                ->setName('Twenty')
                 ->setIp('172.16.39.47')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')
