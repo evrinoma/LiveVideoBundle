@@ -318,7 +318,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
         if (!$cam) {
             $cam = new Cam();
             $cam
-                ->setName('Eighteen')
+                ->setName('Nine')
                 ->setIp('172.16.39.46')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')
@@ -335,7 +335,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
         if (!$cam) {
             $cam = new Cam();
             $cam
-                ->setName('Eighteen')
+                ->setName('Ten')
                 ->setIp('172.16.39.47')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')

@@ -33,7 +33,7 @@ class TypeFixtures extends Fixture implements FixtureGroupInterface
     {
         $this->createTypes($manager);
 
-        //$manager->flush();
+        $manager->flush();
     }
 //endregion Public
 
