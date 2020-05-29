@@ -313,6 +313,39 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
             $this->objectManager->persist($cam);
         }
 
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.46_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Eighteen')
+                ->setIp('172.16.39.46')
+                ->setUserName('admin')
+                ->setPassword('rehufy2014')
+                ->setTitle('Indpark kur 17')
+                ->setStream('cam_172.16.39.46_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.47_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Eighteen')
+                ->setIp('172.16.39.47')
+                ->setUserName('admin')
+                ->setPassword('rehufy2014')
+                ->setTitle('Indpark kur 18')
+                ->setStream('cam_172.16.39.47_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
         return $this;
     }
 //endregion Public
