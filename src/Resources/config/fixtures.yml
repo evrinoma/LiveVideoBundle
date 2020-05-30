@@ -8,7 +8,12 @@ services:
     class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamIpark45Fixtures
     tags:
       - { name: doctrine.fixture.orm }
-
+      -
+  evrinoma.live_video.fixtures.kzkt45:
+    class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamKzkt45Fixtures
+    tags:
+      - { name: doctrine.fixture.orm }
+      -
   evrinoma.live_video.fixtures.vankor:
     class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamVankorFixtures
     tags:
