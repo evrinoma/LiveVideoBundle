@@ -52,7 +52,7 @@ class Group
     private $maxColumn;
 
     /**
-     * @var Cam
+     * @var Cam []
      * @ORM\OneToMany(targetEntity="Evrinoma\LiveVideoBundle\Entity\Cam", mappedBy="group")
      * @Groups({"restrict", "full"})
      */
@@ -93,7 +93,7 @@ class Group
     }
 
     /**
-     * @return Cam
+     * @return Cam[]
      */
     public function getLiveStreams()
     {

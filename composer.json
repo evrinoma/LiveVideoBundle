@@ -17,7 +17,8 @@
         "php": "^7.1.3",
         "evrinoma/dto-bundle": "dev-master",
         "evrinoma/utils-bundle": "dev-master",
-        "ltoscano/ponvif": "dev-master"
+        "ltoscano/ponvif": "dev-master",
+        "evrinoma/menu-bundle": "dev-master"
     },
     "autoload": {
         "psr-4": {

@@ -3,6 +3,7 @@
 
 namespace Evrinoma\LiveVideoBundle\DependencyInjection;
 
+use Evrinoma\LiveVideoBundle\Menu\LiveVideoMenu;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -47,6 +48,11 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+            ->end();
+        $rootNode
+            ->children()
+                ->scalarNode('menu')->defaultValue(LiveVideoMenu::class)
+                ->info('This option is used for plug menu as tag serivce')
             ->end();
 
         return $treeBuilder;
