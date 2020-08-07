@@ -53,6 +53,22 @@ class LiveCamIshimFixtures extends AbstractLiveCamFixtures
             $this->objectManager->persist($cam);
         }
 
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.47.244_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('One')
+                ->setIp('172.16.47.244')
+                ->setUserName('admin')
+                ->setPassword('N.vtym2017')
+                ->setTitle('Камера №1')
+                ->setStream('cam_172.16.47.244_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+         }
+
         return $this;
     }
 //endregion Public
