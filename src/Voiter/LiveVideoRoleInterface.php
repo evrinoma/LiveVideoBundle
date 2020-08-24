@@ -16,6 +16,7 @@ interface LiveVideoRoleInterface extends RoleInterface
 
     public const ROLE_VIDEO = 'ROLE_VIDEO';
     public const ROLE_KZKT_VIDEO = 'ROLE_KZKT_VIDEO';
+    public const ROLE_KPSZ_VIDEO = 'ROLE_KPSZ_VIDEO';
     public const ROLE_ISHIM_VIDEO = 'ROLE_ISHIM_VIDEO';
     public const ROLE_IPARK_VIDEO = 'ROLE_IPARK_VIDEO';
     public const ROLE_TOBOLSK_VIDEO = 'ROLE_TOBOLSK_VIDEO';

@@ -42,7 +42,7 @@ final class LiveVideoMenu implements MenuInterface
 
         $kpszVideo = new MenuItem();
         $kpszVideo
-            ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_KZKT_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
+            ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_KPSZ_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
             ->setName('КПСЗ')
             ->setRoute('live_video')
             ->setRouteParameters(['groupAlias' => 'live_kpsz']);
