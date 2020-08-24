@@ -34,6 +34,7 @@ interface LiveVideoRoleInterface extends RoleInterface
     public const ROLE_CONTROL_VIDEO_MIXED = [
         self::ROLE_CONTROL_VIDEO_ALL,
         self::ROLE_KZKT_CONTROL_VIDEO,
+        self::ROLE_KPSZ_CONTROL_VIDEO,
         self::ROLE_ISHIM_CONTROL_VIDEO,
         self::ROLE_IPARK_CONTROL_VIDEO,
         self::ROLE_TOBOLSK_CONTROL_VIDEO,
