@@ -166,7 +166,7 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setIp('172.23.20.228')
                 ->setUserName('ite')
                 ->setPassword('video2014')
-                ->setTitle('Kurgan KPSZ CAM5')
+                ->setTitle('Kurgan KPSZ CAM8')
                 ->setStream('cam_172.23.20.228_LQ.stream')
                 ->setControl(true)
                 ->setType($this->hikvisionType)
@@ -183,7 +183,7 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setIp('172.23.20.229')
                 ->setUserName('admin')
                 ->setPassword('video2014')
-                ->setTitle('Kurgan KPSZ CAM6')
+                ->setTitle('Kurgan KPSZ CAM9')
                 ->setStream('cam_172.23.20.229_LQ.stream')
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
@@ -199,7 +199,7 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setIp('172.23.20.230')
                 ->setUserName('admin')
                 ->setPassword('video2014')
-                ->setTitle('Kurgan KPSZ CAM7')
+                ->setTitle('Kurgan KPSZ CAM10')
                 ->setStream('cam_172.23.20.230_LQ.stream')
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
