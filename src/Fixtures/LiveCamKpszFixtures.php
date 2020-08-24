@@ -25,7 +25,7 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
             $this->group
                 ->setAlias('live_kpsz')
                 ->setName('Курганский приборостроительный завод')
-                ->setMaxColumn(3)
+                ->setMaxColumn(4)
                 ->addRole(LiveVideoRoleInterface::ROLE_KPSZ_CONTROL_VIDEO)
                 ->addRole(LiveVideoRoleInterface::ROLE_CONTROL_VIDEO_ALL);
 
@@ -51,7 +51,6 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setPassword('video2014')
                 ->setTitle('Kurgan KPSZ CAM1')
                 ->setStream('cam_172.23.20.221_LQ.stream')
-                ->setControl(true)
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
@@ -68,7 +67,6 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setPassword('video2014')
                 ->setTitle('Kurgan KPSZ CAM2')
                 ->setStream('cam_172.23.20.222_LQ.stream')
-                ->setControl(true)
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
@@ -85,7 +83,6 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setPassword('video2014')
                 ->setTitle('Kurgan KPSZ CAM3')
                 ->setStream('cam_172.23.20.223_LQ.stream')
-                ->setControl(true)
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
@@ -102,7 +99,6 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setPassword('video2014')
                 ->setTitle('Kurgan KPSZ CAM4')
                 ->setStream('cam_172.23.20.224_LQ.stream')
-                ->setControl(true)
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
@@ -119,7 +115,6 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setPassword('video2014')
                 ->setTitle('Kurgan KPSZ CAM5')
                 ->setStream('cam_172.23.20.225_LQ.stream')
-                ->setControl(true)
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
@@ -168,7 +163,6 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
                 ->setPassword('video2014')
                 ->setTitle('Kurgan KPSZ CAM8')
                 ->setStream('cam_172.23.20.228_LQ.stream')
-                ->setControl(true)
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
