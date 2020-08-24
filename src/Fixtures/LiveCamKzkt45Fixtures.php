@@ -160,7 +160,6 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
         return $this;
     }
 //endregion Public
-//endregion Public
 
 //region SECTION: Getters/Setters
     /**
