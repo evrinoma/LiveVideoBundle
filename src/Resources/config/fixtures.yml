@@ -53,8 +53,9 @@ services:
     class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamTumenFixtures
     tags:
       - { name: doctrine.fixture.orm }
-      -
+
   evrinoma.live_video.fixtures.kpsz:
     class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamKpszFixtures
     tags:
       - { name: doctrine.fixture.orm }
+
