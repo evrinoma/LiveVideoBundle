@@ -72,6 +72,7 @@ class TypeFixtures extends Fixture implements FixtureGroupInterface
             'LiveCamAllFixtures',
             'LiveCamIpark45Fixtures',
             'LiveCamKzkt45Fixtures',
+            'LiveCamKpszFixtures',
             'LiveCamVankorFixtures',
             'LiveCamIshimFixtures',
             'LiveCamGusevFixtures',

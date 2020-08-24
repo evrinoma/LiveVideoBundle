@@ -39,6 +39,16 @@ final class LiveVideoMenu implements MenuInterface
 
         $em->persist($kzktVideo);
 
+
+        $kpszVideo = new MenuItem();
+        $kpszVideo
+            ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_KZKT_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
+            ->setName('КПСЗ')
+            ->setRoute('live_video')
+            ->setRouteParameters(['groupAlias' => 'live_kpsz']);
+
+        $em->persist($kpszVideo);
+
         $ishimVideo = new MenuItem();
         $ishimVideo
             ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_ISHIM_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
@@ -73,6 +83,7 @@ final class LiveVideoMenu implements MenuInterface
             ->setUri('#')
             ->addChild($iparkVideo)
             ->addChild($kzktVideo)
+            ->addChild($kpszVideo)
             ->addChild($ishimVideo)
             ->addChild($tobolskVideo)
             ->addChild($vankorVideo);
