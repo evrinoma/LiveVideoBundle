@@ -5,10 +5,10 @@ namespace Evrinoma\LiveVideoBundle\Menu;
 
 
 use Doctrine\ORM\EntityManagerInterface;
-use Evrinoma\LiveVideoBundle\Voiter\LiveVideoRoleInterface;
+use Evrinoma\LiveVideoBundle\Voter\LiveVideoRoleInterface;
 use Evrinoma\MenuBundle\Entity\MenuItem;
 use Evrinoma\MenuBundle\Manager\MenuInterface;
-use Evrinoma\UtilsBundle\Voiter\RoleInterface;
+use Evrinoma\UtilsBundle\Voter\RoleInterface;
 
 /**
  * Class LiveVideoMenu

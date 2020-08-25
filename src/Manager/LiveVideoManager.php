@@ -8,7 +8,7 @@ use Evrinoma\LiveVideoBundle\Entity\Cam;
 use Evrinoma\LiveVideoBundle\Entity\Group;
 use Evrinoma\UtilsBundle\Manager\AbstractEntityManager;
 use Evrinoma\UtilsBundle\Rest\RestTrait;
-use Evrinoma\UtilsBundle\Voiter\VoiterInterface;
+use Evrinoma\UtilsBundle\Voter\VoterInterface;
 
 /**
  * Class LiveVideoManager
@@ -22,9 +22,9 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
 //region SECTION: Fields
     protected $repositoryClass = Group::class;
     /**
-     * @var VoiterInterface
+     * @var VoterInterface
      */
-    private $voiterManager;
+    private $voterManager;
 
 //endregion Fields
 
@@ -33,12 +33,12 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
      * LiveVideoManager constructor.
      *
      * @param EntityManagerInterface $entityManager
-     * @param VoiterInterface         $voiterManager
+     * @param VoterInterface         $voterManager
      */
-    public function __construct(EntityManagerInterface $entityManager, VoiterInterface $voiterManager)
+    public function __construct(EntityManagerInterface $entityManager, VoterInterface $voterManager)
     {
         parent::__construct($entityManager);
-        $this->voiterManager = $voiterManager;
+        $this->voterManager = $voterManager;
     }
 //endregion Constructor
 
@@ -142,7 +142,7 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
 
         /** @var Group $item */
         foreach ($data as $item) {
-            if ($item instanceof Group && !$this->voiterManager->checkPermission($item->getRole())) {
+            if ($item instanceof Group && !$this->voterManager->checkPermission($item->getRole())) {
                 /** @var Cam $camera */
                 foreach ($item->getLiveStreams() as $camera) {
                     $camera->setControl(false);
