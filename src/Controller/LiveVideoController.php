@@ -31,7 +31,7 @@ final class LiveVideoController extends AbstractController
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function video($groupAlias)
+    public function video($alias)
     {
         $event = new VideoEvent();
         $this->eventDispatcher->dispatch($event);

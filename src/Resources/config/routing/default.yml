@@ -1,5 +1,5 @@
 live_video:
-  path: /live_video/video/{groupAlias}
+  path: /live_video/video/{alias}
   methods: GET
   defaults: { _controller: Evrinoma\LiveVideoBundle\Controller\LiveVideoController::video}
   options:
