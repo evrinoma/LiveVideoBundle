@@ -7,7 +7,7 @@ namespace Evrinoma\LiveVideoBundle\Menu;
 use Doctrine\ORM\EntityManagerInterface;
 use Evrinoma\LiveVideoBundle\Voter\LiveVideoRoleInterface;
 use Evrinoma\MenuBundle\Entity\MenuItem;
-use Evrinoma\MenuBundle\Manager\MenuInterface;
+use Evrinoma\MenuBundle\Menu\MenuInterface;
 use Evrinoma\UtilsBundle\Voter\RoleInterface;
 
 /**
@@ -19,14 +19,15 @@ final class LiveVideoMenu implements MenuInterface
 {
 
 //region SECTION: Public
-    public function createMenu(EntityManagerInterface $em): void
+    public function create(EntityManagerInterface $em): void
     {
         $iparkVideo = new MenuItem();
         $iparkVideo
             ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_IPARK_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
             ->setName('ipark45')
             ->setRoute('live_video')
-            ->setRouteParameters(['alias' => 'live_ipark45']);
+            ->setRouteParameters(['alias' => 'live_ipark45'])
+            ->setTag($this->tag());
 
         $em->persist($iparkVideo);
 
@@ -35,7 +36,8 @@ final class LiveVideoMenu implements MenuInterface
             ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_KZKT_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
             ->setName('kzkt45')
             ->setRoute('live_video')
-            ->setRouteParameters(['alias' => 'live_kzkt45']);
+            ->setRouteParameters(['alias' => 'live_kzkt45'])
+            ->setTag($this->tag());
 
         $em->persist($kzktVideo);
 
@@ -45,7 +47,8 @@ final class LiveVideoMenu implements MenuInterface
             ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_KPSZ_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
             ->setName('КПСЗ')
             ->setRoute('live_video')
-            ->setRouteParameters(['alias' => 'live_kpsz']);
+            ->setRouteParameters(['alias' => 'live_kpsz'])
+            ->setTag($this->tag());
 
         $em->persist($kpszVideo);
 
@@ -54,7 +57,8 @@ final class LiveVideoMenu implements MenuInterface
             ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_ISHIM_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
             ->setName('Ишим')
             ->setRoute('live_video')
-            ->setRouteParameters(['alias' => 'live_ishim']);
+            ->setRouteParameters(['alias' => 'live_ishim'])
+            ->setTag($this->tag());
 
         $em->persist($ishimVideo);
 
@@ -63,7 +67,8 @@ final class LiveVideoMenu implements MenuInterface
             ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_TOBOLSK_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
             ->setName('Тобольск')
             ->setRoute('live_video')
-            ->setRouteParameters(['alias' => 'live_tobolsk']);
+            ->setRouteParameters(['alias' => 'live_tobolsk'])
+            ->setTag($this->tag());
 
         $em->persist($tobolskVideo);
 
@@ -72,7 +77,8 @@ final class LiveVideoMenu implements MenuInterface
             ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_VANKOR_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
             ->setName('Ванкор')
             ->setRoute('live_video')
-            ->setRouteParameters(['alias' => 'live_vankor']);
+            ->setRouteParameters(['alias' => 'live_vankor'])
+            ->setTag($this->tag());
 
         $em->persist($vankorVideo);
 
@@ -86,7 +92,8 @@ final class LiveVideoMenu implements MenuInterface
             ->addChild($kpszVideo)
             ->addChild($ishimVideo)
             ->addChild($tobolskVideo)
-            ->addChild($vankorVideo);
+            ->addChild($vankorVideo)
+            ->setTag($this->tag());
 
         $em->persist($video);
     }
@@ -94,6 +101,11 @@ final class LiveVideoMenu implements MenuInterface
     public function order(): int
     {
         return 20;
+    }
+
+    public function tag(): string
+    {
+        return MenuInterface::DEFAULT_TAG;
     }
 //endregion Public
 }
