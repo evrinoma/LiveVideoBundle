@@ -15,6 +15,7 @@ services:
       - '@evrinoma.dto.factory'
       - '@evrinoma.live_video.manager'
       - '@evrinoma.live_video.control.manager'
+    autowire: true
 
   Evrinoma\LiveVideoBundle\Voter\LiveVideoVoter:
     alias: evrinoma.live_video.voter
