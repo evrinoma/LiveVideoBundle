@@ -49,7 +49,7 @@ class LiveStreamsDto extends AbstractDto
     }
 
     /**
-     * @return string|null
+     * @inheritDoc
      */
     public function lookingForRequest()
     {

@@ -4,6 +4,7 @@ namespace Evrinoma\LiveVideoBundle\Dto;
 
 use Evrinoma\DtoBundle\Dto\AbstractDto;
 use Evrinoma\DtoBundle\Annotation\Dto;
+use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\LiveVideoBundle\Entity\Group;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -57,11 +58,11 @@ class LiveVideoDto extends AbstractDto
     }
 
     /**
-     * @return string|null
+     * @inheritDoc
      */
     public function lookingForRequest()
     {
-        return null;
+        return DtoInterface::DEFAULT_LOOKING_REQUEST;
     }
 //endregion Public
 
