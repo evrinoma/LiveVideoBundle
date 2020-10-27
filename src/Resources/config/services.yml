@@ -20,17 +20,14 @@ services:
   Evrinoma\LiveVideoBundle\Voter\LiveVideoVoter:
     alias: evrinoma.live_video.voter
     public: true
-    deprecated:
 
   Evrinoma\LiveVideoBundle\Controller\LiveVideoController:
     alias: evrinoma.live_video.controller
     public: true
-    deprecated:
 
   Evrinoma\LiveVideoBundle\Controller\LiveVideoApiController:
     alias: evrinoma.live_video.api.controller
     public: true
-    deprecated:
 
   evrinoma.live_video.manager:
     class: Evrinoma\LiveVideoBundle\Manager\LiveVideoManager
@@ -47,12 +44,10 @@ services:
   Evrinoma\LiveVideoBundle\Manager\LiveVideoManager:
     alias: evrinoma.live_video.manager
     public: true
-    deprecated:
 
   Evrinoma\LiveVideoBundle\Manager\LiveControlManager:
     alias: evrinoma.live_video.control.manager
     public: true
-    deprecated:
 
   evrinoma.live_video.form.rest.action:
     class: Evrinoma\LiveVideoBundle\Form\Rest\ActionType
@@ -77,17 +72,14 @@ services:
   Evrinoma\LiveVideoBundle\Form\Rest\ActionType:
     alias: evrinoma.live_video.form.rest.action
     public: true
-    deprecated:
 
   Evrinoma\LiveVideoBundle\Form\Rest\CamType:
     alias: evrinoma.live_video.form.rest.cam
     public: true
-    deprecated:
 
   Evrinoma\LiveVideoBundle\Form\Rest\GroupType:
     alias: evrinoma.live_video.form.rest.group
     public: true
-    deprecated:
 
   evrinoma.live_video.describer.api:
     class: Evrinoma\LiveVideoBundle\Describer\ApiDescriber
@@ -96,4 +88,3 @@ services:
   Evrinoma\LiveVideoBundle\Describer\ApiDescriber:
     alias: evrinoma.live_video.describer.api
     public: true
-    deprecated:
