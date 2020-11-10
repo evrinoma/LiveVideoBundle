@@ -3,7 +3,7 @@
 
 namespace Evrinoma\LiveVideoBundle\Manager;
 
-use Evrinoma\UtilsBundle\Manager\BaseEntityInterface;
+use Evrinoma\UtilsBundle\Manager\EntityInterface;
 use Evrinoma\UtilsBundle\Rest\RestInterface;
 
 /**
@@ -11,7 +11,7 @@ use Evrinoma\UtilsBundle\Rest\RestInterface;
  *
  * @package Evrinoma\LiveVideoBundle\Manager
  */
-interface LiveControlManagerInterface extends RestInterface,  BaseEntityInterface
+interface LiveControlManagerInterface extends RestInterface, EntityInterface
 {
     public function controlAction($liveVideoDto);
     public function getModelActions();
