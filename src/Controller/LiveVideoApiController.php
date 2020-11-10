@@ -74,7 +74,7 @@ final class LiveVideoApiController extends AbstractApiController
      *     description="search there",
      *     items=@SWG\Items(
      *         type="string",
-     *         @Model(type=Evrinoma\LiveVideoBundle\Form\Rest\GroupType::class)
+     *         ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\GroupType::class)
      *     )
      * )
      * @SWG\Parameter(
@@ -134,7 +134,7 @@ final class LiveVideoApiController extends AbstractApiController
      *     description="cam action",
      *     items=@SWG\Items(
      *         type="string",
-     *         @Model(type=Evrinoma\LiveVideoBundle\Form\Rest\ActionType::class)
+     *         ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\ActionType::class)
      *     )
      * )
      * @SWG\Parameter(
@@ -144,7 +144,7 @@ final class LiveVideoApiController extends AbstractApiController
      *     description="search there",
      *     items=@SWG\Items(
      *         type="string",
-     *         @Model(type=Evrinoma\LiveVideoBundle\Form\Rest\CamType::class)
+     *         ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\CamType::class)
      *     )
      * )
      * @SWG\Response(response=200,description="Cam Live Video Contol")
