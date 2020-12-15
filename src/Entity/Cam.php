@@ -4,6 +4,7 @@ namespace Evrinoma\LiveVideoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Evrinoma\UtilsBundle\Entity\ActiveTrait;
+use Evrinoma\UtilsBundle\Entity\IdTrait;
 use JMS\Serializer\Annotation\Exclude;
 use JMS\Serializer\Annotation\Groups;
 
@@ -16,7 +17,7 @@ use JMS\Serializer\Annotation\Groups;
  */
 class Cam
 {
-    use ActiveTrait;
+    use IdTrait, ActiveTrait;
 
 //region SECTION: Fields
     /**
@@ -27,7 +28,7 @@ class Cam
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @Groups({"restrict", "full"})
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -140,14 +141,6 @@ class Cam
     public function getGroup(): Group
     {
         return $this->group;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
     }
 
     /**

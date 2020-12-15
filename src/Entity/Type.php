@@ -4,6 +4,7 @@ namespace Evrinoma\LiveVideoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Evrinoma\UtilsBundle\Entity\ActiveTrait;
+use Evrinoma\UtilsBundle\Entity\IdTrait;
 use JMS\Serializer\Annotation\Groups;
 
 /**
@@ -15,7 +16,7 @@ use JMS\Serializer\Annotation\Groups;
  */
 class Type
 {
-    use ActiveTrait;
+    use IdTrait, ActiveTrait;
 
 //region SECTION: Fields
     const HIKVISION = 'hikvision';
@@ -29,7 +30,7 @@ class Type
      * @ORM\GeneratedValue(strategy="IDENTITY")
      * @Groups({"full"})
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -61,6 +62,4 @@ class Type
         return $this;
     }
 //endregion Getters/Setters
-
-
 }
