@@ -216,6 +216,87 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
             $this->objectManager->persist($cam);
         }
 
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.23.20.218_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Twelve')
+                ->setIp('172.23.20.218')
+                ->setUserName('admin')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KPSZ CAM12')
+                ->setStream('cam_172.23.20.218_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.23.20.219_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Thirteen')
+                ->setIp('172.23.20.219')
+                ->setUserName('admin')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KPSZ CAM13')
+                ->setStream('cam_172.23.20.219_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.23.20.220_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Fourteen')
+                ->setIp('172.23.20.220')
+                ->setUserName('admin')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KPSZ CAM14')
+                ->setStream('cam_172.23.20.220_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.23.20.232_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Fifteen')
+                ->setIp('172.23.20.232')
+                ->setUserName('admin')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KPSZ CAM15')
+                ->setStream('cam_172.23.20.232_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.23.20.233_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Sixteen')
+                ->setIp('172.23.20.233')
+                ->setUserName('admin')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KPSZ CAM16')
+                ->setStream('cam_172.23.20.233_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
         return $this;
     }
 //endregion Public
