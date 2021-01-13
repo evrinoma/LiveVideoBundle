@@ -297,6 +297,38 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
             $this->objectManager->persist($cam);
         }
 
+        $cam = $repository->findOneBy(['stream' => 'cam_172.23.20.216_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Seventeen')
+                ->setIp('172.23.20.216')
+                ->setUserName('admin')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KPSZ CAM17')
+                ->setStream('cam_172.23.20.216_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.23.20.217_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Eighteen')
+                ->setIp('172.23.20.217')
+                ->setUserName('admin')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KPSZ CAM18')
+                ->setStream('cam_172.23.20.217_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
         return $this;
     }
 //endregion Public
