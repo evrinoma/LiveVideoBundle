@@ -263,6 +263,22 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
             $this->objectManager->persist($cam);
         }
 
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.22_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Fifteen')
+                ->setIp('172.16.39.22')
+                ->setUserName('admin')
+                ->setPassword('rehufy2014')
+                ->setTitle('Indpark kur 15')
+                ->setStream('cam_172.16.39.22_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
         $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.43_LQ.stream']);
 
         if (!$cam) {
@@ -272,7 +288,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
                 ->setIp('172.16.39.43')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')
-                ->setTitle('Indpark kur 14')
+                ->setTitle('Indpark kur 16')
                 ->setStream('cam_172.16.39.43_LQ.stream')
                 ->setControl(true)
                 ->setType($this->hikvisionType)
@@ -289,7 +305,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
                 ->setIp('172.16.39.44')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')
-                ->setTitle('Indpark kur 15')
+                ->setTitle('Indpark kur 17')
                 ->setStream('cam_172.16.39.44_LQ.stream')
                 //->setControl(true)
                 ->setType($this->hikvisionType)
@@ -306,7 +322,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
                 ->setIp('172.16.39.45')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')
-                ->setTitle('Indpark kur 16')
+                ->setTitle('Indpark kur 18')
                 ->setStream('cam_172.16.39.45_LQ.stream')
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
@@ -322,7 +338,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
                 ->setIp('172.16.39.46')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')
-                ->setTitle('Indpark kur 17')
+                ->setTitle('Indpark kur 19')
                 ->setStream('cam_172.16.39.46_LQ.stream')
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
@@ -339,7 +355,7 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
                 ->setIp('172.16.39.47')
                 ->setUserName('admin')
                 ->setPassword('rehufy2014')
-                ->setTitle('Indpark kur 18')
+                ->setTitle('Indpark kur 20')
                 ->setStream('cam_172.16.39.47_LQ.stream')
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
