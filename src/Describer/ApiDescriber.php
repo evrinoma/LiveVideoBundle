@@ -4,6 +4,7 @@ namespace Evrinoma\LiveVideoBundle\Describer;
 
 use EXSyst\Component\Swagger\Swagger;
 use Nelmio\ApiDocBundle\Describer\DescriberInterface;
+use OpenApi\Annotations\OpenApi;
 
 /**
  * Class ApiDescriber
@@ -14,7 +15,7 @@ class ApiDescriber implements DescriberInterface
 {
 
 //region SECTION: Public
-    public function describe(Swagger $api)
+    public function describe(OpenApi $api)
     {
         $externalDoc = [
             [

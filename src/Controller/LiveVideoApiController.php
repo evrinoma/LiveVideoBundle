@@ -10,7 +10,7 @@ use Evrinoma\UtilsBundle\Controller\AbstractApiController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use JMS\Serializer\SerializerInterface;
 use Nelmio\ApiDocBundle\Annotation\Model;
-use Swagger\Annotations as SWG;
+use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -66,34 +66,54 @@ final class LiveVideoApiController extends AbstractApiController
 //region SECTION: Public
     /**
      * @Rest\Get("/api/live_video", name="api_live_video_group")
-     * @SWG\Get(tags={"live_video"})
-     * @SWG\Parameter(
-     *     name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[alias]",
-     *     in="query",
-     *     type="array",
-     *     description="search there",
-     *     items=@SWG\Items(
-     *         type="string",
-     *         ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\GroupType::class)
-     *     )
+     * @OA\Get(
+     *     tags={"live_video"},
+     *     @OA\Parameter(
+     *         name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[alias]",
+     *         in="query",
+     *         description="search there",
+     *         required=true,
+     *         @OA\Schema(
+     *              type="array",
+     *              @OA\Items(
+     *                  type="string",
+     *                  ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\GroupType::class),
+     *              ),
+     *          ),
+     *         style="form"
+     *     ),
+     *     @OA\Parameter(
+     *         name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[isEmptyResult]",
+     *         in="query",
+     *         description="if true then return all values then group unselected",
+     *         required=true,
+     *         @OA\Schema(
+     *              type="array",
+     *              @OA\Items(
+     *                  type="string",
+     *                  enum={"true", "false"},
+     *                  default="true"
+     *              ),
+     *          ),
+     *         style="form"
+     *     ),
+     *     @OA\Parameter(
+     *         name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[serializeGroup]",
+     *         in="query",
+     *         description="group serialization",
+     *         required=true,
+     *         @OA\Schema(
+     *              type="array",
+     *              @OA\Items(
+     *                  type="string",
+     *                  enum={"restrict", "full"},
+     *                  default="restrict"
+     *              ),
+     *          ),
+     *         style="form"
+     *     ),
      * )
-     * @SWG\Parameter(
-     *    name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[isEmptyResult]",
-     *    in="query",
-     *    type="boolean",
-     *    default= "true",
-     *    description="if true then return all values then group unselected",
-     *    enum={"true","false"}
-     * )
-     * @SWG\Parameter(
-     *    name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[serializeGroup]",
-     *    in="query",
-     *    type="string",
-     *    default= "restrict",
-     *    description="group serialization",
-     *    enum={"restrict","full"}
-     * )
-     * @SWG\Response(response=200,description="Returns Live Video Settings")
+     * @OA\Response(response=200,description="Returns Live Video Settings")
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
@@ -113,8 +133,8 @@ final class LiveVideoApiController extends AbstractApiController
 
     /**
      * @Rest\Get("/api/live_video/class", name="api_live_video_class")
-     * @SWG\Get(tags={"live_video"})
-     * @SWG\Response(response=200,description="Returns class acl entity")
+     * @OA\Get(tags={"live_video"})
+     * @OA\Response(response=200,description="Returns class acl entity")
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
@@ -125,29 +145,38 @@ final class LiveVideoApiController extends AbstractApiController
 
     /**
      * @Rest\Get("/api/live_video/control", name="api_live_video_control")
-     * @SWG\Get(tags={"live_video"})
-     * @SWG\Parameter(
-     *     name="Evrinoma\LiveVideoBundle\Dto\LiveStreamsDto[action]",
-     *     in="query",
-     *     type="array",
-     *     default=null,
-     *     description="cam action",
-     *     items=@SWG\Items(
-     *         type="string",
-     *         ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\ActionType::class)
-     *     )
+     * @OA\Get(
+     *     tags={"live_video"},
+     *     @OA\Parameter(
+     *         name="Evrinoma\LiveVideoBundle\Dto\LiveStreamsDto[action]",
+     *         in="query",
+     *         description="cam action",
+     *         required=true,
+     *         @OA\Schema(
+     *              type="array",
+     *              @OA\Items(
+     *                  type="string",
+     *                  ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\ActionType::class),
+     *              ),
+     *          ),
+     *         style="form"
+     *     ),
+     *     @OA\Parameter(
+     *         name="Evrinoma\LiveVideoBundle\Dto\LiveStreamsDto[live_streams]",
+     *         in="query",
+     *         description="search there",
+     *         required=true,
+     *         @OA\Schema(
+     *              type="array",
+     *              @OA\Items(
+     *                  type="string",
+     *                  ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\CamType::class),
+     *              ),
+     *          ),
+     *         style="form"
+     *     ),
      * )
-     * @SWG\Parameter(
-     *     name="Evrinoma\LiveVideoBundle\Dto\LiveStreamsDto[live_streams]",
-     *     in="query",
-     *     type="array",
-     *     description="search there",
-     *     items=@SWG\Items(
-     *         type="string",
-     *         ref=@Model(type=Evrinoma\LiveVideoBundle\Form\Rest\CamType::class)
-     *     )
-     * )
-     * @SWG\Response(response=200,description="Cam Live Video Contol")
+     * @OA\Response(response=200,description="Cam Live Video Contol")
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
@@ -161,8 +190,8 @@ final class LiveVideoApiController extends AbstractApiController
 
     /**
      * @Rest\Get("/api/live_video/control/class", name="api_live_video_control_class")
-     * @SWG\Get(tags={"live_video"})
-     * @SWG\Response(response=200,description="Returns class acl entity")
+     * @OA\Get(tags={"live_video"})
+     * @OA\Response(response=200,description="Returns class acl entity")
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
@@ -173,8 +202,8 @@ final class LiveVideoApiController extends AbstractApiController
 
     /**
      * @Rest\Get("/api/live_video/streaming_engine", name="api_live_video_streaming_engine")
-     * @SWG\Get(tags={"live_video"})
-     * @SWG\Response(response=200,description="Returns class acl entity")
+     * @OA\Get(tags={"live_video"})
+     * @OA\Response(response=200,description="Returns class acl entity")
      * @TODO Host and Applications
      *
      * @return \Symfony\Component\HttpFoundation\JsonResponse
