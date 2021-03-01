@@ -180,13 +180,14 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
         if (!$cam) {
             $cam = new Cam();
             $cam
-                ->setName('Seven')
+                ->setName('Eighth')
                 ->setIp('172.16.39.48')
                 ->setUserName('ite')
                 ->setPassword('video2014')
                 ->setTitle('3 пролет центр -49')
                 ->setStream('cam_172.16.39.48_LQ.stream')
                 ->setType($this->hikvisionType)
+                ->setControl(true)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
         }
@@ -196,13 +197,14 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
         if (!$cam) {
             $cam = new Cam();
             $cam
-                ->setName('Seven')
+                ->setName('Nine')
                 ->setIp('172.16.39.49')
                 ->setUserName('ite')
                 ->setPassword('video2014')
                 ->setTitle('3 пролет центр -1')
                 ->setStream('cam_172.16.39.49_LQ.stream')
                 ->setType($this->hikvisionType)
+                ->setControl(true)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
         }
