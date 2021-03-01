@@ -25,7 +25,7 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
             $this->group
                 ->setAlias('live_kzkt45')
                 ->setName('Курганский завод комплексных технологий')
-                ->setMaxColumn(3)
+                ->setMaxColumn(5)
                 ->addRole(LiveVideoRoleInterface::ROLE_KZKT_CONTROL_VIDEO)
                 ->addRole(LiveVideoRoleInterface::ROLE_CONTROL_VIDEO_ALL);
 
