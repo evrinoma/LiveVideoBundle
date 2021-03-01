@@ -53,6 +53,24 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
                 ->setStream('cam_172.16.39.10_HD.stream')
                 ->setControl(true)
                 ->setType($this->axisType)
+                ->setGroup($this->group)
+                ->setActiveToDelete();
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.23_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('One')
+                ->setIp('172.16.39.23')
+                ->setUserName('ite')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KZKT CAM1 1 пролет')
+                ->setStream('cam_172.16.39.23_LQ.stream')
+                ->setControl(true)
+                ->setType($this->axisType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
         }
@@ -156,7 +174,39 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
         }
-        
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.48_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Seven')
+                ->setIp('172.16.39.48')
+                ->setUserName('ite')
+                ->setPassword('video2014')
+                ->setTitle('3 пролет центр -49')
+                ->setStream('cam_172.16.39.48_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.39.49_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Seven')
+                ->setIp('172.16.39.49')
+                ->setUserName('ite')
+                ->setPassword('video2014')
+                ->setTitle('3 пролет центр -1')
+                ->setStream('cam_172.16.39.49_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
         return $this;
     }
 //endregion Public
