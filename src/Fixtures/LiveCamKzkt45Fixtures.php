@@ -70,7 +70,7 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
                 ->setTitle('Kurgan KZKT CAM1 1 пролет')
                 ->setStream('cam_172.16.39.23_LQ.stream')
                 ->setControl(true)
-                ->setType($this->axisType)
+                ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
         }
