@@ -2,6 +2,7 @@
 
 namespace Evrinoma\LiveVideoBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Evrinoma\UtilsBundle\Entity\ActiveTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
@@ -9,7 +10,7 @@ use Evrinoma\UtilsBundle\Entity\RoleTrait;
 use JMS\Serializer\Annotation\Groups;
 
 /**
- * Class CamType
+ * Class Group
  *
  * @package Evrinoma\LiveVideoBundle\Entity
  * @ORM\Entity
@@ -61,6 +62,11 @@ class Group
 //endregion Fields
 
 //region SECTION: Getters/Setters
+
+    public function __construct() {
+        $this->liveStreams = new ArrayCollection();
+    }
+
     /**
      * @return int
      */

@@ -3,6 +3,7 @@
 namespace Evrinoma\LiveVideoBundle\Manager;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query;
 use Evrinoma\LiveVideoBundle\Dto\LiveVideoDto;
 use Evrinoma\LiveVideoBundle\Entity\Cam;
 use Evrinoma\LiveVideoBundle\Entity\Group;
@@ -72,14 +73,17 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
     {
         $builder = $this->repository->createQueryBuilder('groups');
 
-        $builder->where('groups.active = \'a\'');
+        $builder->select('groups,streams')
+            ->where('groups.active = \'a\'')
+            ->leftJoin('groups.liveStreams', 'streams')
+            ->andWhere('streams.active = \'a\'');
 
         if ($liveVideoDto && $liveVideoDto->getAlias()) {
             $builder->andWhere('groups.alias = :alias')
                 ->setParameter('alias', $liveVideoDto->getAlias());
         }
 
-        $this->setData($builder->getQuery()->getResult());
+        $this->setData($builder->getQuery()->setHint(Query::HINT_FORCE_PARTIAL_LOAD, true)->getResult());
 
         return $this;
     }
@@ -139,7 +143,6 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
      */
     public function setData($data)
     {
-
         /** @var Group $item */
         foreach ($data as $item) {
             if ($item instanceof Group && !$this->voterManager->checkPermission($item->getRole())) {
