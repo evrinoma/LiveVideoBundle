@@ -69,7 +69,6 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
                 ->setPassword('video2014')
                 ->setTitle('Kurgan KZKT CAM1 1 пролет')
                 ->setStream('cam_172.16.39.23_LQ.stream')
-                ->setControl(true)
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
@@ -187,7 +186,6 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
                 ->setTitle('3 пролет центр -49')
                 ->setStream('cam_172.16.39.48_LQ.stream')
                 ->setType($this->hikvisionType)
-                ->setControl(true)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
         }
@@ -204,7 +202,6 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
                 ->setTitle('3 пролет центр -1')
                 ->setStream('cam_172.16.39.49_LQ.stream')
                 ->setType($this->hikvisionType)
-                ->setControl(true)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
         }
