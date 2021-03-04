@@ -15,7 +15,7 @@
     "version": "1.0.0",
     "require": {
         "php": "^7.1.3",
-        "evrinoma/dto-bundle": "dev-master",
+        "evrinoma/dto-bundle": "^1.0.1",
         "evrinoma/utils-bundle": "dev-master",
         "ltoscano/ponvif": "dev-master",
         "evrinoma/menu-bundle": "dev-master"
