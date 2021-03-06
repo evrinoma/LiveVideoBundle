@@ -2,10 +2,9 @@
 
 namespace Evrinoma\LiveVideoBundle\Dto;
 
-use Evrinoma\DtoBundle\Dto\AbstractDto;
 use Evrinoma\DtoBundle\Annotation\Dto;
+use Evrinoma\DtoBundle\Dto\AbstractDto;
 use Evrinoma\DtoBundle\Dto\DtoInterface;
-use Evrinoma\LiveVideoBundle\Entity\Group;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -20,21 +19,20 @@ class LiveVideoDto extends AbstractDto
     private $isEmptyResult  = true;
     private $alias;
     private $serializeGroup = 'restrict';
-
     /**
-     * @Dto(class="Evrinoma\LiveVideoBundle\Dto\LiveStreamsDto")
-     * @var LiveStreamsDto
+     * @Dto(class="Evrinoma\LiveVideoBundle\Dto\LiveStreamDto")
+     * @var LiveStreamDto
      */
-    private $liveStreams;
+    private $liveStreamDto;
 //endregion Fields
 
 //region SECTION: Protected
     /**
      * @return mixed
      */
-    protected function getClassEntity()
+    protected function getClassEntity(): ?string
     {
-        return Group::class;
+        return null;
     }
 //endregion Protected
 
@@ -46,25 +44,45 @@ class LiveVideoDto extends AbstractDto
     {
         return $this->isEmptyResult;
     }
-
-    /**
-     * @param $entity
-     *
-     * @return mixed
-     */
-    public function fillEntity($entity)
-    {
-        return $entity;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function lookingForRequest()
-    {
-        return DtoInterface::DEFAULT_LOOKING_REQUEST;
-    }
 //endregion Public
+
+//region SECTION: Private
+    /**
+     * @param mixed $serializeGroup
+     *
+     * @return LiveVideoDto
+     */
+    private function setSerializeGroup($serializeGroup)
+    {
+        $this->serializeGroup = $serializeGroup;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $isEmptyResult
+     *
+     * @return LiveVideoDto
+     */
+    private function setIsEmptyResult($isEmptyResult)
+    {
+        $this->isEmptyResult = $isEmptyResult === 'true';
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $alias
+     *
+     * @return LiveVideoDto
+     */
+    private function setAlias($alias)
+    {
+        $this->alias = $alias;
+
+        return $this;
+    }
+//endregion Private
 
 //region SECTION: Dto
     /**
@@ -72,11 +90,11 @@ class LiveVideoDto extends AbstractDto
      *
      * @return AbstractDto
      */
-    public function toDto($request)
+    public function toDto($request): DtoInterface
     {
-        $class = $request->get('class');
+        $class = $request->get(DtoInterface::DTO_CLASS);
 
-        if ($class === $this->getClassEntity()) {
+        if ($class === $this->getClass()) {
             $alias         = $request->get('alias');
             $isEmptyResult = $request->get('isEmptyResult');
 
@@ -101,11 +119,23 @@ class LiveVideoDto extends AbstractDto
 
 //region SECTION: Getters/Setters
     /**
-     * @return LiveStreamsDto
+     * @param LiveStreamDto $liveStreamDto
+     *
+     * @return DtoInterface
      */
-    public function getLiveStreams()
+    public function setLiveStreamDto(LiveStreamDto $liveStreamDto): DtoInterface
     {
-        return $this->liveStreams;
+        $this->liveStreamDto = $liveStreamDto;
+
+        return $this;
+    }
+
+    /**
+     * @return LiveStreamDto
+     */
+    public function getLiveStreamDto(): LiveStreamDto
+    {
+        return $this->liveStreamDto;
     }
 
     /**
@@ -122,66 +152,6 @@ class LiveVideoDto extends AbstractDto
     public function getAlias()
     {
         return $this->alias;
-    }
-
-    /**
-     * @param LiveStreamsDto $liveControl
-     *
-     * @return LiveVideoDto
-     */
-    public function setLiveControl($liveControl)
-    {
-        $this->liveControl = $liveControl;
-
-        return $this;
-    }
-
-    /**
-     * @param LiveStreamsDto[] $liveStreams
-     *
-     * @return LiveVideoDto
-     */
-    public function setLiveStreams($liveStreams)
-    {
-        $this->liveStreams = $liveStreams;
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $serializeGroup
-     *
-     * @return LiveVideoDto
-     */
-    public function setSerializeGroup($serializeGroup)
-    {
-        $this->serializeGroup = $serializeGroup;
-
-        return $this;
-    }
-
-    /**
-     * @param bool $isEmptyResult
-     *
-     * @return LiveVideoDto
-     */
-    public function setIsEmptyResult($isEmptyResult)
-    {
-        $this->isEmptyResult = $isEmptyResult === 'true';
-
-        return $this;
-    }
-
-    /**
-     * @param mixed $alias
-     *
-     * @return LiveVideoDto
-     */
-    public function setAlias($alias)
-    {
-        $this->alias = $alias;
-
-        return $this;
     }
 //endregion Getters/Setters
 }
