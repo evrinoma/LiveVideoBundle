@@ -3,6 +3,7 @@
 namespace Evrinoma\LiveVideoBundle\Manager;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\LiveVideoBundle\Dto\LiveVideoDto;
 use Evrinoma\LiveVideoBundle\Entity\Cam;
 use Evrinoma\UtilsBundle\Manager\AbstractEntityManager;
@@ -92,12 +93,12 @@ class LiveControlManager extends AbstractEntityManager implements LiveControlMan
 
 //region SECTION: Public
     /**
-     * @param LiveVideoDto $liveVideoDto
+     * @param DtoInterface $liveVideoDto
      *
      * @return self
      * @throws \Exception
      */
-    public function controlAction($liveVideoDto)
+    public function controlAction(DtoInterface $liveVideoDto)
     {
         $cams = $this->liveVideoManager->getCamera($liveVideoDto)->getData();
 

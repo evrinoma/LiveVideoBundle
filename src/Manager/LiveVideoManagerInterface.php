@@ -3,9 +3,7 @@
 
 namespace Evrinoma\LiveVideoBundle\Manager;
 
-
-
-use Evrinoma\LiveVideoBundle\Dto\LiveVideoDto;
+use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\UtilsBundle\Manager\EntityInterface;
 use Evrinoma\UtilsBundle\Rest\RestInterface;
 
@@ -16,9 +14,9 @@ use Evrinoma\UtilsBundle\Rest\RestInterface;
  */
 interface LiveVideoManagerInterface extends RestInterface,  EntityInterface
 {
-    public function getLiveVideo(LiveVideoDto $liveVideoDto);
+    public function getLiveVideo(DtoInterface $liveVideoDto);
 
-    public function getGroup($liveVideoDto);
+    public function getGroup(DtoInterface $liveVideoDto);
 
-    public function getCamera($liveVideoDto);
+    public function getCamera(DtoInterface $liveVideoDto);
 }

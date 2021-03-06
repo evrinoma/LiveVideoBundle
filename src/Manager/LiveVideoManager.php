@@ -4,6 +4,7 @@ namespace Evrinoma\LiveVideoBundle\Manager;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Query;
+use Evrinoma\DtoBundle\Dto\DtoInterface;
 use Evrinoma\LiveVideoBundle\Dto\LiveVideoDto;
 use Evrinoma\LiveVideoBundle\Entity\Cam;
 use Evrinoma\LiveVideoBundle\Entity\Group;
@@ -53,11 +54,11 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
     }
 
     /**
-     * @param LiveVideoDto $liveVideoDto
+     * @param DtoInterface $liveVideoDto
      *
      * @return self
      */
-    public function getLiveVideo($liveVideoDto)
+    public function getLiveVideo(DtoInterface $liveVideoDto)
     {
         $this->getGroup($liveVideoDto);
 
@@ -65,11 +66,11 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
     }
 
     /**
-     * @param LiveVideoDto $liveVideoDto
+     * @param DtoInterface $liveVideoDto
      *
      * @return self
      */
-    public function getGroup($liveVideoDto)
+    public function getGroup(DtoInterface $liveVideoDto)
     {
         $builder = $this->repository->createQueryBuilder('groups');
 
@@ -89,11 +90,11 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
     }
 
     /**
-     * @param LiveVideoDto $liveVideoDto
+     * @param DtoInterface $liveVideoDto
      *
      * @return self
      */
-    public function getCamera($liveVideoDto)
+    public function getCamera(DtoInterface $liveVideoDto)
     {
         $repository = $this->entityManager->getRepository(Cam::class);
 
@@ -103,17 +104,17 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
             ->where('cams.active = \'a\'')
             ->leftJoin('cams.group', 'group');
 
-        if ($liveVideoDto && $liveVideoDto->getLiveStreams()) {
-            $streams = $liveVideoDto->getLiveStreams()->getStreams();
+        if ($liveVideoDto && $liveVideoDto->getLiveStreamDto()) {
+            $streams = $liveVideoDto->getLiveStreamDto()->getStream();
             if ($streams) {
-                $builder->andWhere('cams.stream IN (:streams)')
+                $builder->andWhere('cams.stream = :streams')
                     ->setParameter('streams', $streams);
             }
         }
 
-        if ($liveVideoDto && $liveVideoDto->getLiveStreams()) {
+        if ($liveVideoDto && $liveVideoDto->getLiveStreamDto()) {
             $builder->andWhere('cams.control = :control')
-                ->setParameter('control', $liveVideoDto->getLiveStreams()->hasControl());
+                ->setParameter('control', $liveVideoDto->getLiveStreamDto()->isControl());
         }
 
 
@@ -129,11 +130,7 @@ class LiveVideoManager extends AbstractEntityManager implements LiveVideoManager
      */
     public function getData($dto = null)
     {
-        if ($dto && $dto->isEmptyResult() && !$this->hasSingleData()) {
-            return [];
-        } else {
-            return parent::getData();
-        }
+        return ($dto && $dto->isEmptyResult() && !$this->hasSingleData())? [] :parent::getData();
     }
 
     /**
