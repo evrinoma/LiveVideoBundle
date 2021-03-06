@@ -69,7 +69,18 @@ final class LiveVideoApiController extends AbstractApiController
      * @OA\Get(
      *     tags={"live_video"},
      *     @OA\Parameter(
-     *         name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[alias]",
+     *         description="class",
+     *         in="query",
+     *         name="class",
+     *         required=true,
+     *         @OA\Schema(
+     *           type="string",
+     *           default="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto",
+     *           readOnly=true
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="alias",
      *         in="query",
      *         description="search there",
      *         required=true,
@@ -83,7 +94,7 @@ final class LiveVideoApiController extends AbstractApiController
      *         style="form"
      *     ),
      *     @OA\Parameter(
-     *         name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[isEmptyResult]",
+     *         name="isEmptyResult",
      *         in="query",
      *         description="if true then return all values then group unselected",
      *         required=true,
@@ -98,7 +109,7 @@ final class LiveVideoApiController extends AbstractApiController
      *         style="form"
      *     ),
      *     @OA\Parameter(
-     *         name="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto[serializeGroup]",
+     *         name="serializeGroup",
      *         in="query",
      *         description="group serialization",
      *         required=true,
@@ -122,25 +133,7 @@ final class LiveVideoApiController extends AbstractApiController
         /** @var LiveVideoDto $liveVideoDto */
         $liveVideoDto = $this->factoryDto->setRequest($this->request)->createDto(LiveVideoDto::class);
 
-        $data = $this->liveVideoManager->setRestSuccessOk()->getLiveVideo($liveVideoDto)->getData($liveVideoDto);
-
-        $status = $this->liveVideoManager->getRestStatus();
-
-        $this->setSerializeGroup($liveVideoDto->getSerializeGroup());
-
-        return $this->json($data, $status);
-    }
-
-    /**
-     * @Rest\Get("/api/live_video/class", name="api_live_video_class")
-     * @OA\Get(tags={"live_video"})
-     * @OA\Response(response=200,description="Returns class acl entity")
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
-    public function liveVideoClassAction()
-    {
-        return $this->json($this->liveVideoManager->setRestSuccessOk()->getRepositoryClass(), $this->liveVideoManager->getRestStatus());
+        return $this->setSerializeGroup($liveVideoDto->getSerializeGroup())->json($this->liveVideoManager->setRestSuccessOk()->getLiveVideo($liveVideoDto)->getData($liveVideoDto), $this->liveVideoManager->getRestStatus());
     }
 
     /**
@@ -148,7 +141,18 @@ final class LiveVideoApiController extends AbstractApiController
      * @OA\Get(
      *     tags={"live_video"},
      *     @OA\Parameter(
-     *         name="Evrinoma\LiveVideoBundle\Dto\LiveStreamsDto[action]",
+     *         description="class",
+     *         in="query",
+     *         name="class",
+     *         required=true,
+     *         @OA\Schema(
+     *           type="string",
+     *           default="Evrinoma\LiveVideoBundle\Dto\LiveStreamDto",
+     *           readOnly=true
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="action",
      *         in="query",
      *         description="cam action",
      *         required=true,
@@ -162,7 +166,7 @@ final class LiveVideoApiController extends AbstractApiController
      *         style="form"
      *     ),
      *     @OA\Parameter(
-     *         name="Evrinoma\LiveVideoBundle\Dto\LiveStreamsDto[live_streams]",
+     *         name="live_stream",
      *         in="query",
      *         description="search there",
      *         required=true,
@@ -185,19 +189,7 @@ final class LiveVideoApiController extends AbstractApiController
         /** @var LiveVideoDto $liveVideoDto */
         $liveVideoDto = $this->factoryDto->setRequest($this->request)->createDto(LiveVideoDto::class);
 
-        return $this->json($this->liveControlManager->setAction($liveVideoDto->getLiveStreams()->getAction())->controlAction($liveVideoDto)->getData(), $this->liveControlManager->getRestStatus());
-    }
-
-    /**
-     * @Rest\Get("/api/live_video/control/class", name="api_live_video_control_class")
-     * @OA\Get(tags={"live_video"})
-     * @OA\Response(response=200,description="Returns class acl entity")
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
-    public function liveVideoControlClassAction()
-    {
-        return $this->json($this->liveControlManager->setRestSuccessOk()->getRepositoryClass(), $this->liveControlManager->getRestStatus());
+        return $this->json($this->liveControlManager->setAction($liveVideoDto->getLiveStreamDto()->getAction())->controlAction($liveVideoDto)->getData(), $this->liveControlManager->getRestStatus());
     }
 
     /**
