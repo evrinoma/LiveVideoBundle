@@ -3,13 +3,13 @@
 
 namespace Evrinoma\LiveVideoBundle\DependencyInjection;
 
+use Evrinoma\LiveVideoBundle\EvrinomaLiveVideoBundle;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * Class EvrinomaLiveVideoBundleExtension
@@ -42,7 +42,7 @@ class EvrinomaLiveVideoBundleExtension extends Extension
 //region SECTION: Getters/Setters
     public function getAlias()
     {
-        return 'livevideo';
+        return EvrinomaLiveVideoBundle::LIVE_VIDEO_BUNDLE;
     }
 //endregion Getters/Setters
 }

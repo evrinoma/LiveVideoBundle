@@ -15,6 +15,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class EvrinomaLiveVideoBundle extends Bundle
 {
+    public const LIVE_VIDEO_BUNDLE = 'live_video';
 //region SECTION: Public
     public function build(ContainerBuilder $container)
     {
