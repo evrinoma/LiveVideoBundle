@@ -59,14 +59,12 @@ services:
     class: Evrinoma\LiveVideoBundle\Form\Rest\CamType
     arguments:
       - '@evrinoma.live_video.manager'
-      - '@evrinoma.dto.factory'
     tags: { - name: form.type }
 
   evrinoma.live_video.form.rest.group:
     class: Evrinoma\LiveVideoBundle\Form\Rest\GroupType
     arguments:
       - '@evrinoma.live_video.manager'
-      - '@evrinoma.dto.factory'
     tags: { - name: form.type }
 
   Evrinoma\LiveVideoBundle\Form\Rest\ActionType:

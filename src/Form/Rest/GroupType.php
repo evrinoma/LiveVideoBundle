@@ -25,11 +25,6 @@ class GroupType extends AbstractType
      * LiveVideoManager
      */
     private $liveVideoManager;
-
-    /**
-     * @var FactoryDto
-     */
-    private $factoryDto;
 //endregion Fields
 //endregion Fields
 
@@ -38,12 +33,10 @@ class GroupType extends AbstractType
      * ServerType constructor.
      *
      * @param LiveVideoManagerInterface $liveVideoManager
-     * @param FactoryDto                $factoryDto
      */
-    public function __construct(LiveVideoManagerInterface $liveVideoManager, FactoryDto $factoryDto)
+    public function __construct(LiveVideoManagerInterface $liveVideoManager)
     {
         $this->liveVideoManager = $liveVideoManager;
-        $this->factoryDto       = $factoryDto;
     }
 
 //endregion Constructor
@@ -53,8 +46,7 @@ class GroupType extends AbstractType
     {
         $callback = function (Options $options) {
             $groups = [];
-            $liveVideoDto = $this->factoryDto->cloneDto(LiveVideoDto::class);
-            foreach ($this->liveVideoManager->getGroup($liveVideoDto)->getData() as $data) {
+            foreach ($this->liveVideoManager->getGroup(new LiveVideoDto())->getData() as $data) {
                 /** @var $data Group */
                 $groups[] = $data->getAlias();
             }
