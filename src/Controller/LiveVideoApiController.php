@@ -147,7 +147,7 @@ final class LiveVideoApiController extends AbstractApiController
      *         required=true,
      *         @OA\Schema(
      *           type="string",
-     *           default="Evrinoma\LiveVideoBundle\Dto\LiveStreamDto",
+     *           default="Evrinoma\LiveVideoBundle\Dto\LiveVideoDto",
      *           readOnly=true
      *         )
      *     ),

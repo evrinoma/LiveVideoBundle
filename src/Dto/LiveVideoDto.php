@@ -20,21 +20,11 @@ class LiveVideoDto extends AbstractDto
     private $alias;
     private $serializeGroup = 'restrict';
     /**
-     * @Dto(class="Evrinoma\LiveVideoBundle\Dto\LiveStreamDto")
+     * @Dto(class="Evrinoma\LiveVideoBundle\Dto\LiveStreamDto", generator="genRequestLiveStreamDto")
      * @var LiveStreamDto
      */
     private $liveStreamDto;
 //endregion Fields
-
-//region SECTION: Protected
-    /**
-     * @return mixed
-     */
-    protected function getClassEntity(): ?string
-    {
-        return null;
-    }
-//endregion Protected
 
 //region SECTION: Public
     /**
@@ -115,9 +105,29 @@ class LiveVideoDto extends AbstractDto
 
         return $this;
     }
-//endregion SECTION: Dto
 
-//region SECTION: Getters/Setters
+    /**
+     * @return \Generator
+     */
+    public function genRequestLiveStreamDto(?Request $request): ?\Generator
+    {
+        if ($request) {
+            $clone = clone $request;
+
+            if ($request->attributes->has(DtoInterface::DTO_CLASS)) {
+                $clone->attributes->add([DtoInterface::DTO_CLASS => LiveStreamDto::class]);
+            }
+            if ($request->query->has(DtoInterface::DTO_CLASS)) {
+                $clone->query->add([DtoInterface::DTO_CLASS => LiveStreamDto::class]);
+            }
+            if ($request->request->has(DtoInterface::DTO_CLASS)) {
+                $clone->request->add([DtoInterface::DTO_CLASS => LiveStreamDto::class]);
+            }
+
+            yield $clone;
+        }
+    }
+
     /**
      * @param LiveStreamDto $liveStreamDto
      *
@@ -137,7 +147,9 @@ class LiveVideoDto extends AbstractDto
     {
         return $this->liveStreamDto;
     }
+//endregion SECTION: Dto
 
+//region SECTION: Getters/Setters
     /**
      * @return mixed
      */

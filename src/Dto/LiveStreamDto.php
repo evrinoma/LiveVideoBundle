@@ -25,16 +25,6 @@ class LiveStreamDto extends AbstractDto
     private $action;
 //endregion Fields
 
-//region SECTION: Protected
-    /**
-     * @return mixed
-     */
-    protected function getClassEntity(): ?string
-    {
-        return null;
-    }
-//endregion Protected
-
 //region SECTION: Private
     /**
      * @param mixed $liveStream
