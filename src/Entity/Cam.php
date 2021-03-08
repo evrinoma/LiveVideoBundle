@@ -111,7 +111,7 @@ class Cam
     /**
      * @Exclude()
      * @var Group
-     * @ORM\ManyToOne(targetEntity="Evrinoma\LiveVideoBundle\Entity\Group", inversedBy="id")
+     * @ORM\ManyToOne(targetEntity="Evrinoma\LiveVideoBundle\Entity\Group", inversedBy="liveStreams")
      */
     private $group;
 //endregion Fields
