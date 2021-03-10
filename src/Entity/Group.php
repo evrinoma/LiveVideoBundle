@@ -4,6 +4,7 @@ namespace Evrinoma\LiveVideoBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Evrinoma\UtilsBundle\Entity\ActiveInterface;
 use Evrinoma\UtilsBundle\Entity\ActiveTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
 use Evrinoma\UtilsBundle\Entity\RoleTrait;
@@ -16,7 +17,7 @@ use JMS\Serializer\Annotation\Groups;
  * @ORM\Entity
  * @ORM\Table(name="live_group")
  */
-class Group
+class Group implements ActiveInterface
 {
     use IdTrait, ActiveTrait, RoleTrait;
 

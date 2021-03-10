@@ -3,6 +3,7 @@
 namespace Evrinoma\LiveVideoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Evrinoma\UtilsBundle\Entity\ActiveInterface;
 use Evrinoma\UtilsBundle\Entity\ActiveTrait;
 use Evrinoma\UtilsBundle\Entity\IdTrait;
 use JMS\Serializer\Annotation\Exclude;
@@ -15,7 +16,7 @@ use JMS\Serializer\Annotation\Groups;
  * @ORM\Entity
  * @ORM\Table(name="live_cam")
  */
-class Cam
+class Cam implements ActiveInterface
 {
     use IdTrait, ActiveTrait;
 
