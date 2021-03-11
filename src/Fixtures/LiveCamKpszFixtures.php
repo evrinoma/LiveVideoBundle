@@ -25,7 +25,7 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
             $this->group
                 ->setAlias('live_kpsz')
                 ->setName('Курганский приборостроительный завод')
-                ->setMaxColumn(5)
+                ->setMaxColumn(7)
                 ->addRole(LiveVideoRoleInterface::ROLE_KPSZ_CONTROL_VIDEO)
                 ->addRole(LiveVideoRoleInterface::ROLE_CONTROL_VIDEO_ALL);
 
