@@ -79,8 +79,40 @@ class LiveCamVankorFixtures extends AbstractLiveCamFixtures
                 ->setIp('176.118.25.162:31245')
                 ->setUserName('ite')
                 ->setPassword('video2014')
-                ->setTitle('Камера #3 ')
+                ->setTitle('Камера #3')
                 ->setStream('cam_172.16.22.245_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.22.241_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Four')
+                ->setIp('172.16.22.242')
+                ->setUserName('ite')
+                ->setPassword('video2014')
+                ->setTitle('Камера #4')
+                ->setStream('cam_172.16.22.241_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
+        $cam = $repository->findOneBy(['stream' => 'cam_172.16.22.242_LQ.stream']);
+
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Five')
+                ->setIp('172.16.22.242')
+                ->setUserName('ite')
+                ->setPassword('video2014')
+                ->setTitle('Камера #5')
+                ->setStream('cam_172.16.22.242_LQ.stream')
                 ->setType($this->hikvisionType)
                 ->setGroup($this->group);
             $this->objectManager->persist($cam);
@@ -102,7 +134,10 @@ class LiveCamVankorFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamVankorFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_VANKOR_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }
