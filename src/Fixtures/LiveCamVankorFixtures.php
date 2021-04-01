@@ -24,7 +24,7 @@ class LiveCamVankorFixtures extends AbstractLiveCamFixtures
             $this->group
                 ->setAlias('live_vankor')
                 ->setName('Ванкор')
-                ->setMaxColumn(2)
+                ->setMaxColumn(3)
                 ->addRole(LiveVideoRoleInterface::ROLE_VANKOR_CONTROL_VIDEO)
                 ->addRole(LiveVideoRoleInterface::ROLE_CONTROL_VIDEO_ALL);
             $this->objectManager->persist($this->group);
