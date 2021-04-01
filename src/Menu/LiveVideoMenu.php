@@ -95,6 +95,16 @@ final class LiveVideoMenu implements MenuInterface
             ->addChild($vankorVideo)
             ->setTag($this->tag());
 
+        $vankorVideo = new MenuItem();
+        $vankorVideo
+            ->setRole([RoleInterface::ROLE_SUPER_ADMIN, LiveVideoRoleInterface::ROLE_KZET_VIDEO, LiveVideoRoleInterface::ROLE_VIDEO_ALL])
+            ->setName('КЗЭТ')
+            ->setRoute('live_video')
+            ->setRouteParameters(['alias' => 'live_kzet'])
+            ->setTag($this->tag());
+
+        $em->persist($vankorVideo);
+
         $em->persist($video);
     }
 
