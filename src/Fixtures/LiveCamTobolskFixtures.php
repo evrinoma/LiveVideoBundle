@@ -87,7 +87,10 @@ class LiveCamTobolskFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamTobolskFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_TOBOLSK_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

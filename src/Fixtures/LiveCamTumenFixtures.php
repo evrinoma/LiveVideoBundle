@@ -99,7 +99,10 @@ class LiveCamTumenFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamTumenFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_TUMEN_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

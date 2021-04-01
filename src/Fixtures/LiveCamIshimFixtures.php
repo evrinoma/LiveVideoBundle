@@ -84,7 +84,10 @@ class LiveCamIshimFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamIshimFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_ISHIM_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

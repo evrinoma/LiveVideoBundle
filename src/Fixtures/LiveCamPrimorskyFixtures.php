@@ -116,7 +116,10 @@ class LiveCamPrimorskyFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamPrimorskyFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_PRIMORSKY_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

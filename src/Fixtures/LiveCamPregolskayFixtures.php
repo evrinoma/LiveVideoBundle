@@ -115,7 +115,10 @@ class LiveCamPregolskayFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamPregolskayFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_PREGOLSKAY_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

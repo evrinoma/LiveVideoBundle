@@ -69,18 +69,19 @@ class TypeFixtures extends Fixture implements FixtureGroupInterface
     public static function getGroups(): array
     {
         return [
-            'LiveCamAllFixtures',
-            'LiveCamIpark45Fixtures',
-            'LiveCamKzkt45Fixtures',
-            'LiveCamKpszFixtures',
-            'LiveCamVankorFixtures',
-            'LiveCamIshimFixtures',
-            'LiveCamGusevFixtures',
-            'LiveCamPregolskayFixtures',
-            'LiveCamPrimorskyFixtures',
-            'LiveCamSovetskFixtures',
-            'LiveCamTobolskFixtures',
-            'LiveCamTumenFixtures',
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_IPARK45_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_KZKT45_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_KPSZ_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_KZET_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_VANKOR_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_ISHIM_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_GUSEV_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_PREGOLSKAY_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_PRIMORSKY_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_SOVETSK_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_TOBOLSK_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_TUMEN_FIXTURES,
         ];
     }
 //endregion Getters/Setters

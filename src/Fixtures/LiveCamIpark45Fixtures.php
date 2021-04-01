@@ -378,7 +378,10 @@ class LiveCamIpark45Fixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamIpark45Fixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_IPARK45_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

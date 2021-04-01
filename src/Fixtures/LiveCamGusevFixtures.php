@@ -131,7 +131,10 @@ class LiveCamGusevFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamGusevFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_GUSEV_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

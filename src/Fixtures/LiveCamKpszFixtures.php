@@ -377,6 +377,20 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
             $this->objectManager->persist($cam);
         }
 
+        if (!$cam) {
+            $cam = new Cam();
+            $cam
+                ->setName('Twenty two')
+                ->setIp('172.23.20.212')
+                ->setUserName('admin')
+                ->setPassword('video2014')
+                ->setTitle('Kurgan KPSZ CAM22')
+                ->setStream('cam_172.23.20.212_LQ.stream')
+                ->setType($this->hikvisionType)
+                ->setGroup($this->group);
+            $this->objectManager->persist($cam);
+        }
+
         return $this;
     }
 //endregion Public
@@ -392,7 +406,10 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamKpszFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_KPSZ_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

@@ -163,7 +163,10 @@ class LiveCamSovetskFixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamSovetskFixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_SOVETSK_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }

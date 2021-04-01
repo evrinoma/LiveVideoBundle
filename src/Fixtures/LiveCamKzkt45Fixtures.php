@@ -221,7 +221,10 @@ class LiveCamKzkt45Fixtures extends AbstractLiveCamFixtures
 
     public static function getGroups(): array
     {
-        return ['LiveCamAllFixtures', 'LiveCamKzkt45Fixtures'];
+        return [
+            LiveVideoFixtureInterface::LIVE_CAM_ALL_FIXTURES,
+            LiveVideoFixtureInterface::LIVE_CAM_KZKT45_FIXTURES,
+        ];
     }
 //endregion Getters/Setters
 }
