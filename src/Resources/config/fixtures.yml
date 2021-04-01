@@ -63,4 +63,3 @@ services:
     class: Evrinoma\LiveVideoBundle\Fixtures\LiveCamKzetFixtures
     tags:
       - { name: doctrine.fixture.orm }
-      -
