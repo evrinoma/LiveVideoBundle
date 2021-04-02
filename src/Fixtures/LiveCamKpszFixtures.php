@@ -377,6 +377,8 @@ class LiveCamKpszFixtures extends AbstractLiveCamFixtures
             $this->objectManager->persist($cam);
         }
 
+        $cam = $repository->findOneBy(['stream' => 'cam_172.23.20.212_LQ.stream']);
+
         if (!$cam) {
             $cam = new Cam();
             $cam
