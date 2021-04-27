@@ -58,7 +58,7 @@ class LiveStreamDto extends AbstractDto
      *
      * @return AbstractDto
      */
-    public function toDto($request): DtoInterface
+    public function toDto(Request $request): DtoInterface
     {
         $class = $request->get(DtoInterface::DTO_CLASS);
 
