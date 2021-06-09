@@ -133,7 +133,7 @@ final class LiveVideoApiController extends AbstractApiController
         /** @var LiveVideoDto $liveVideoDto */
         $liveVideoDto = $this->factoryDto->setRequest($this->request)->createDto(LiveVideoDto::class);
 
-        return $this->setSerializeGroup($liveVideoDto->getSerializeGroup())->json($this->liveVideoManager->setRestSuccessOk()->getLiveVideo($liveVideoDto)->getData($liveVideoDto), $this->liveVideoManager->getRestStatus());
+        return $this->setSerializeGroup($liveVideoDto->getSerializeGroup())->json($this->liveVideoManager->setRestOk()->getLiveVideo($liveVideoDto)->getData($liveVideoDto), $this->liveVideoManager->getRestStatus());
     }
 
     /**
@@ -206,7 +206,7 @@ final class LiveVideoApiController extends AbstractApiController
         $host        = 'http://cam.ite-ng.ru:1935/';
         $list        = 'playlist.m3u8';
 
-        return $this->json(['host' => $host.$application, 'list' => $list], $this->liveVideoManager->setRestSuccessOk()->getRestStatus());
+        return $this->json(['host' => $host.$application, 'list' => $list], $this->liveVideoManager->setRestOk()->getRestStatus());
     }
 //endregion Public
 }

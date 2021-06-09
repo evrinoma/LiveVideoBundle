@@ -155,7 +155,7 @@ class LiveControlManager extends AbstractEntityManager implements LiveControlMan
      */
     private function makeAction($camera)
     {
-        $this->setRestServerErrorUnknownError();
+        $this->setRestUnknownError();
 
         if ($this->action) {
             if ($camera->isControl()) {
@@ -174,13 +174,13 @@ class LiveControlManager extends AbstractEntityManager implements LiveControlMan
                 if (null !== $token) {
                     if ($this->isActionCallable($this->action)) {
                         $this->{$this->action}($token);
-                        $this->setRestSuccessOk();
+                        $this->setRestOk();
                     } else {
-                        $this->setRestServerErrorServiceUnavailable();
+                        $this->setRestServiceUnavailable();
                     }
                 }
             } else {
-                $this->setRestSuccessOk();
+                $this->setRestOk();
             }
         }
 
